@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="distributions">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/build/distributions/spiegelDeobfuskator-1.2-SNAPSHOT.zip!/" />
+      <root url="jar://$PROJECT_DIR$/build/distributions/spiegelDeobfuskator-1.0-SNAPSHOT.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

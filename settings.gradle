@@ -1,2 +1,5 @@
-rootProject.name = 'spiegelDeobfuskator'
+rootProject.name = "spiegelDeobfuskator"
+
+include 'decoder'
+include 'app'
 

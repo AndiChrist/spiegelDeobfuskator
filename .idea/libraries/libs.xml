@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/build/libs/spiegelDeobfuskator-1.2-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/libs/spiegelDeobfuskator-1.0-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/libs/spiegelDeobfuskator-1.1-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

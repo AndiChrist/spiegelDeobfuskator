@@ -1,5 +1,6 @@
-package de.avwc;
+package de.avwc.decoder;
 
+import j2html.TagCreator;
 import j2html.tags.DomContent;
 import j2html.tags.Text;
 import org.jsoup.Jsoup;
@@ -12,8 +13,6 @@ import java.io.IOException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import static j2html.TagCreator.*;
 
 /**
  * http://www.spiegel.de/spiegel/jason-brennan-zu-donald-trump-wahlsieg-waehler-sind-hobbits-a-1141615.html
@@ -55,17 +54,17 @@ public class SpiegelDecoder {
         document.select("div.asset-box").remove();
         document.select("div.module-box").remove();
 
-        return document(
-                html(
-                        head(
-                                meta().withCharset("utf-8"),
-                                title(document.title())),
-                        body(
-                                h3(document.select("h2.article-title span.headline-intro").text()),
-                                h1(document.select("h2.article-title span.headline").text()),
-                                h2(document.select("p.article-intro").text()),
-                                p(each(getText(document, !ENCODED), e -> e)),
-                                p(each(getText(document, ENCODED), e -> e))
+        return TagCreator.document(
+                TagCreator.html(
+                        TagCreator.head(
+                                TagCreator.meta().withCharset("utf-8"),
+                                TagCreator.title(document.title())),
+                        TagCreator.body(
+                                TagCreator.h3(document.select("h2.article-title span.headline-intro").text()),
+                                TagCreator.h1(document.select("h2.article-title span.headline").text()),
+                                TagCreator.h2(document.select("p.article-intro").text()),
+                                TagCreator.p(TagCreator.each(getText(document, !ENCODED), e -> e)),
+                                TagCreator.p(TagCreator.each(getText(document, ENCODED), e -> e))
 
                         )
                 )
@@ -92,16 +91,16 @@ public class SpiegelDecoder {
 
                     switch(element.nodeName()) {
                         case "b":
-                            normalText.add(b(encoded ? decode(element.ownText()) : element.ownText()));
+                            normalText.add(TagCreator.b(encoded ? decode(element.ownText()) : element.ownText()));
                             break;
                         case "br":
-                            normalText.add(br());
+                            normalText.add(TagCreator.br());
                             break;
                         case "i":
-                            normalText.add(i(encoded ? decode(element.ownText()) : element.ownText()));
+                            normalText.add(TagCreator.i(encoded ? decode(element.ownText()) : element.ownText()));
                             break;
                         case "a":
-                            normalText.add(i(element.ownText()));
+                            normalText.add(TagCreator.i(element.ownText()));
                             break;
                         default:
                             normalText.add(new Text(encoded ? decode(element.ownText()) : element.ownText()));
@@ -113,8 +112,8 @@ public class SpiegelDecoder {
             }
 
             // two breaks for one p
-            normalText.add(br());
-            normalText.add(br());
+            normalText.add(TagCreator.br());
+            normalText.add(TagCreator.br());
         });
 
         return normalText;

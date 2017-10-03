@@ -1,7 +1,9 @@
-package de.avwc;
+package de.avwc.app;
 /**
  * Created by andichrist on 21.05.17.
  */
+
+import de.avwc.decoder.SpiegelDecoder;
 
 import javafx.application.Application;
 
