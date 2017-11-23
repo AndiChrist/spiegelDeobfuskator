@@ -1,59 +1,7 @@
-group 'de.avwc'
-version '1.2-SNAPSHOT'
-
 subprojects {
     afterEvaluate {
         repositories {
             mavenCentral()
-            jcenter()
-        }
-
-        compileJava {
-            doFirst {
-                options.compilerArgs = [
-                        '--module-path', classpath.asPath,
-                ]
-                classpath = files()
-            }
-        }
-
-        compileTestJava {
-            inputs.property("moduleName", moduleName)
-            doFirst {
-                options.compilerArgs = [
-                        '--module-path', classpath.asPath,
-                        '--add-modules', 'junit',
-                        '--add-reads', "$moduleName=junit",
-                        '--patch-module', "$moduleName=" + files(sourceSets.test.java.srcDirs).asPath,
-                ]
-                classpath = files()
-            }
-        }
-
-        test {
-            inputs.property("moduleName", moduleName)
-            doFirst {
-                jvmArgs = [
-                        '--module-path', classpath.asPath,
-                        '--add-modules', 'ALL-MODULE-PATH',
-                        '--add-reads', "$moduleName=junit",
-                        '--patch-module', "$moduleName=" + files(sourceSets.test.java.outputDir).asPath,
-                ]
-                classpath = files()
-            }
         }
     }
 }
-
-
-/*
-task wrapper(type: Wrapper) {
-  gradleVersion = '4.2.1'
-  distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
-}
-
-apply plugin: 'java'
-
-sourceCompatibility = targetJavaVersion
-
-*/

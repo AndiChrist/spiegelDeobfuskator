@@ -7,6 +7,4 @@ module de.avwc.app {
     requires javafx.web;
 
     requires de.avwc.decoder;
-    uses de.avwc.decoder.SpiegelDecoder;
-
 }
