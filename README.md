@@ -6,5 +6,6 @@ Build runnable artifacts:
 
 Run application with
 > ./gradlew run
+
 or
 > ./app/build/install/app/bin/app
