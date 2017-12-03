@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app_main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app_main.iml" group="app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app_test.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app_test.iml" group="app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/decoder/decoder.iml" filepath="$PROJECT_DIR$/.idea/modules/decoder/decoder.iml" group="decoder" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/decoder/decoder_main.iml" filepath="$PROJECT_DIR$/.idea/modules/decoder/decoder_main.iml" group="decoder" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/decoder/decoder_test.iml" filepath="$PROJECT_DIR$/.idea/modules/decoder/decoder_test.iml" group="decoder" />
+      <module fileurl="file://$PROJECT_DIR$/spiegelDeobfuskator.iml" filepath="$PROJECT_DIR$/spiegelDeobfuskator.iml" />
+    </modules>
+  </component>
+</project>
