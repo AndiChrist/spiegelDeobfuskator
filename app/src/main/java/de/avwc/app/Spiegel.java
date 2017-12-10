@@ -64,7 +64,8 @@ public class Spiegel extends Application {
     private EventHandler<ActionEvent> loadAction(TextField textField, WebEngine webEngine) {
         return (ActionEvent event) -> {
             String url = textField.getText();
-            String plainText = SpiegelDecoder.decodeFromURL(url);
+            SpiegelDecoder decoder = SpiegelDecoder.getInstance();
+            String plainText = decoder.decodeFromURL(url);
             System.out.println("Loading url: " + url);
 
             webEngine.loadContent(plainText);

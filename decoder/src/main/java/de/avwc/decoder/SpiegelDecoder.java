@@ -29,11 +29,15 @@ public class SpiegelDecoder {
 
     private static final boolean ENCODED = true;
 
-    public static String decodeFromURL(String url) {
-        return decodeDocument(getDocumentFromURL(url));
+    private static SpiegelDecoder instance;
+
+    public String decodeFromURL(String url) {
+        Document document = getDocumentFromURL(url);
+        String decodedDocument = decodeDocument(document);
+        return decodedDocument;
     }
 
-    public static Document getDocumentFromURL(String url) {
+    public Document getDocumentFromURL(String url) {
         Document document = null;
 
         try {
@@ -45,7 +49,7 @@ public class SpiegelDecoder {
         return document;
     }
 
-    private static String decodeDocument(Document document) {
+    private String decodeDocument(Document document) {
         Objects.requireNonNull(document);
 
         // remove unwanted stuff
@@ -54,7 +58,7 @@ public class SpiegelDecoder {
         document.select("div.asset-box").remove();
         document.select("div.module-box").remove();
 
-        return TagCreator.document(
+        String decodedDocument = TagCreator.document(
                 TagCreator.html(
                         TagCreator.head(
                                 TagCreator.meta().withCharset("utf-8"),
@@ -69,10 +73,11 @@ public class SpiegelDecoder {
                         )
                 )
         );
+
+        return decodedDocument;
     }
 
-    private static List<DomContent> getText(Document document, boolean encoded) {
-        List<DomContent> normalText = new ArrayList<>();
+    private List<DomContent> getText(Document document, boolean encoded) {
         String filter;
         if (encoded) {
             filter = "div.obfuscated-content > p.obfuscated";
@@ -82,6 +87,7 @@ public class SpiegelDecoder {
 
         Elements ps = document.select(filter);
 
+        List<DomContent> normalText = new ArrayList<>();
         ps.stream().forEach(e -> {
             List<Node> nodes = e.childNodes();
             for (Node n : nodes) {
@@ -119,7 +125,7 @@ public class SpiegelDecoder {
         return normalText;
     }
 
-    public static String decode(String text) {
+    public String decode(String text) {
         char[] caesarText = text.toCharArray();
         char[] cleanText = new char[caesarText.length];
         for (char c = 0; c < caesarText.length; c++) {
@@ -167,72 +173,13 @@ public class SpiegelDecoder {
         return new String(cleanText);
     }
 
-    /*
-    // not used right now
-    public static String encode(String text) {
-        char[] cleanText = text.toCharArray();
-        char[] caesarText = new char[cleanText.length];
-        for (char c = 0; c < cleanText.length; c++) {
-            // some excludes
-            switch (cleanText[c]) {
-                case ' ':
-                    caesarText[c] = cleanText[c];
-                    break;
-                case '!':
-                    caesarText[c] = '²';
-                    break;
-                default:
-                    caesarText[c] = (char) (cleanText[c] + 1);
-            }
+    public static SpiegelDecoder getInstance() {
+        if (instance == null) {
+            instance = new SpiegelDecoder();
         }
 
-        return new String(caesarText);
+        return instance;
     }
 
-
-       private static String cssStyle() {
-        final StringBuilder outBuffer = new StringBuilder();
-
-        outBuffer.append("<style>");
-        outBuffer.append(".jumbotron {");
-        outBuffer.append("    background-color: #f4511e;");
-        outBuffer.append("    color: #fff;");
-        outBuffer.append("    padding: 100px 25px;");
-        outBuffer.append("}");
-
-        outBuffer.append(".container-fluid {");
-        outBuffer.append("    padding: 60px 50px;");
-        outBuffer.append("}");
-        outBuffer.append("</style>");
-
-        return outBuffer.toString();
-    }
-
-    private static String startBootstrap() {
-        final StringBuilder outBuffer = new StringBuilder();
-
-        outBuffer.append("<!-- Latest compiled and minified CSS -->");
-        outBuffer.append("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">");
-
-        outBuffer.append("<!-- Optional theme -->");
-        outBuffer.append("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css\" integrity=\"sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp\" crossorigin=\"anonymous\">");
-
-        //outBuffer.append("<!-- Latest compiled and minified JavaScript -->");
-        //outBuffer.append("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\" integrity=\"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa\" crossorigin=\"anonymous\"></script>");
-
-        return outBuffer.toString();
-    }
-
-    private static String endBootstrap() {
-        final StringBuilder outBuffer = new StringBuilder();
-
-        outBuffer.append("<!-- JQuery -->");
-        outBuffer.append("<script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=\" crossorigin=\"anonymous\"></script>");
-
-        outBuffer.append("<!-- Latest compiled and minified JavaScript -->");
-        outBuffer.append("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\" integrity=\"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa\" crossorigin=\"anonymous\"></script>");
-
-        return outBuffer.toString();
-    }
-     */
+    private SpiegelDecoder() {}
 }
