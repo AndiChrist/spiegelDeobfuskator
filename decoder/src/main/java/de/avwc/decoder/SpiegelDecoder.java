@@ -37,6 +37,24 @@ public class SpiegelDecoder {
         return decodedDocument;
     }
 
+    public String decodeFromString(String html) {
+        Document document = Jsoup.parseBodyFragment(html);
+        String decodedDocument = filterDocument(document);
+        return decodedDocument;
+    }
+
+    private String filterDocument(Document document) {
+        Objects.requireNonNull(document);
+
+        // remove intro text
+        document.select("p.js-spiegelplus-obfuscated-intro").remove();
+
+        DomContent huhu = TagCreator.each(getText(document, ENCODED), e -> e);
+        //LOG.info("XXX" + huhu.toString());
+
+        return document.html();
+    }
+
     public Document getDocumentFromURL(String url) {
         Document document = null;
 

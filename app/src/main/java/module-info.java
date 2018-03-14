@@ -5,6 +5,7 @@ module de.avwc.app {
     requires javafx.graphics;
     requires javafx.controls;
     requires javafx.web;
+    requires java.logging;
 
     requires de.avwc.decoder;
 }

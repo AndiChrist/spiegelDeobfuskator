@@ -20,9 +20,27 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.nio.charset.Charset;
+import java.util.logging.Logger;
+
 public class Spiegel extends Application {
 
+    private static final Logger LOG = Logger.getLogger(Spiegel.class.getName());
+
+    private static SpiegelDecoder decoder;
+
     public static void main(String[] args) {
+        decoder = SpiegelDecoder.getInstance();
         launch(args);
     }
 
@@ -57,18 +75,56 @@ public class Spiegel extends Application {
 
         Scene scene = new Scene(vbox);
 
+        stage.setTitle("SPIEGEL Deobfuscator");
         stage.setScene(scene);
         stage.show();
     }
 
     private EventHandler<ActionEvent> loadAction(TextField textField, WebEngine webEngine) {
         return (ActionEvent event) -> {
-            String url = textField.getText();
-            SpiegelDecoder decoder = SpiegelDecoder.getInstance();
-            String plainText = decoder.decodeFromURL(url);
-            System.out.println("Loading url: " + url);
+            //String url = textField.getText();
+
+            URL url = null;
+            try {
+                url = new URL(textField.getText());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+
+            URLConnection connection = null;
+            try {
+                connection = url.openConnection();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            BufferedReader buffReader = null;
+            try {
+                buffReader = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("utf-8")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            StringBuffer buffer = new StringBuffer();
+            try {
+                String line;
+                while ((line = buffReader.readLine()) != null) {
+                    buffer.append(line);
+                    //LOG.warning(line);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String plainText = decoder.decodeFromURL(url.toString());
+            LOG.info("Loading url: " + url);
+
+            //String xxx = decoder.decodeFromString(buffer.toString());
+            //LOG.info(xxx);
 
             webEngine.loadContent(plainText);
+            //webEngine.load(url.toString());
+
         };
     }
 }
