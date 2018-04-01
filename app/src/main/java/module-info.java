@@ -10,4 +10,5 @@ module de.avwc.app {
     requires java.logging;
 
     requires de.avwc.decoder;
+    uses de.avwc.decoder.SpiegelDecoder;
 }
