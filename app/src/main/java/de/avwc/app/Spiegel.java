@@ -116,7 +116,7 @@ public class Spiegel extends Application {
                 e.printStackTrace();
             }
 
-            String plainText = decoder.decodeFromURL(url.toString());
+            var plainText = decoder.decodeFromURL(url.toString());
             LOG.info("Loading url: " + url);
 
             //String xxx = decoder.decodeFromString(buffer.toString());
