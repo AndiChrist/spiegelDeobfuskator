@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ce28679-76d2-40a2-8ddb-675374a89fcd" name="Default" comment="slight improvements">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_j2html_j2html_1_2_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_j2html_j2html_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/app/app_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app_main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/app/app_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app_test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/decoder/decoder_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/decoder/decoder_main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/decoder/decoder_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/decoder/decoder_test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/de/avwc/app/Spiegel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/de/avwc/app/Spiegel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -40,8 +34,8 @@
       <file leaf-file-name="Spiegel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/avwc/app/Spiegel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="109" column="28" lean-forward="true" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
+            <state relative-caret-position="1395">
+              <caret line="121" column="28" selection-start-line="121" selection-start-column="28" selection-end-line="121" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -49,7 +43,7 @@
       <file leaf-file-name="SpiegelDecoder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/decoder/src/main/java/de/avwc/decoder/SpiegelDecoder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="566">
+            <state relative-caret-position="675">
               <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -966,6 +960,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -1047,7 +1042,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1198,7 +1192,6 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32941177" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
@@ -1207,7 +1200,6 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.32896462" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1217,8 +1209,10 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32941177" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32896462" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
@@ -1230,6 +1224,40 @@
     <option name="LAST_COMMIT_MESSAGE" value="slight improvements" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/avwc/app/Spiegel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1635">
+          <caret line="109" column="28" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/decoder/src/main/java/de/avwc/decoder/SpiegelDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/avwc/app/Spiegel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1635">
+          <caret line="109" column="28" lean-forward="true" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/decoder/src/main/java/de/avwc/decoder/SpiegelDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/avwc/app/Spiegel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1680">
@@ -1246,9 +1274,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/avwc/app/Spiegel.java">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/decoder/src/main/java/de/avwc/decoder/SpiegelDecoder.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1294,9 +1319,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/avwc/app/Spiegel.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/decoder/src/main/java/de/avwc/decoder/SpiegelDecoder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1170">
@@ -1306,9 +1328,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/avwc/app/Spiegel.java">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/decoder/src/main/java/de/avwc/decoder/SpiegelDecoder.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1321,12 +1340,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/avwc/app/Browser.java" />
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.11.2/f0f1f0d1ceb2cd515c98649d9ad6b8b9814899b2/jsoup-1.11.2-sources.jar!/org/jsoup/nodes/Document.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/util/Objects.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/avwc/app/HandlerFactory.java" />
@@ -1358,7 +1371,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/decoder/src/main/java/de/avwc/decoder/SpiegelDecoder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
+        <state relative-caret-position="675">
           <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1368,8 +1381,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/avwc/app/Spiegel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="109" column="28" lean-forward="true" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
+        <state relative-caret-position="1395">
+          <caret line="121" column="28" selection-start-line="121" selection-start-column="28" selection-end-line="121" selection-end-column="28" />
         </state>
       </provider>
     </entry>
